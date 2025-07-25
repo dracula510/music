@@ -1,11 +1,17 @@
 .spinner {
   margin: 0 auto;
-  border: 6px solid #f3f3f3;
-  border-left: 6px solid #007bff;
+  /* border: 6px solid #f3f3f3; */
+  /* border-left: 6px solid #007bff; */
+  background: linear-gradient(to right, #007bff, #00c6ff); 
   border-radius: 50%;
   width: 40px;
   height: 40px;
-  animation: spin 0.9s linear infinite;
+  animation: spin 0.5s linear infinite;
+  border-left:5px solid #c0392b;
+  border-right:5px solid #8e44ad;
+  border-top:5px solid #4a708a;
+  border-bottom:5px solid #8e44ad;
+
 }
 
 @keyframes spin {
@@ -25,23 +31,57 @@ body{
   color: #222;
 }
 
-.music-header {
-  text-align: center;
-  margin-bottom: 2rem;
-  color: #fff;
+
+.music-title{
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
+.music-header {
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 4s  steps(30, end) forwards;
+  transition: all linear 5s;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-family: 'Courier New', Courier, monospace;
+   background: linear-gradient(to right, #007bff, #00c6ff); 
+   -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  padding:0rem 0.5rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 30px rgba(0, 123, 255, 0.2); 
+  display: flex;
+  justify-content: center;
+  padding:0 1rem;
+  color: blue;
+  text-align: center;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 26ch; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #007bff; }
+}
 .no-tex-msg{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 16rem;
+  margin-top: 10rem;
   color:  #007bff;
   font-size: 5rem;
 }
 
 /* Search Bar */
-.search-bar {
+/* .search-bar {
   display: flex;
   gap: 0.5rem;
   margin-bottom: 1rem;
@@ -52,7 +92,6 @@ body{
   padding: 0.8rem 1rem;
   border: 3px solid #007bff;
   border-radius: 8px;
-  /* font-size: 1rem; */
   outline: none;
 }
 
@@ -69,6 +108,50 @@ body{
 
 .search-bar button:hover {
   background-color: #0056b3;
+} */
+
+
+
+.search-bar {
+    display: flex; /* Arranges input and button side-by-side */
+    gap: 10px; /* Space between input and button */
+    padding: 20px; /* Some padding around the elements */
+    background-color: gray; /* Light background for context */
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.search-bar input {
+    flex-grow: 1; /* Allows input to take up available space */
+    padding: 12px 15px;
+    border: none;
+    border-radius: 25px; /* More rounded corners */
+    font-size: 20px;
+    color: #fff; /* White text for contrast on dark background */
+    background: linear-gradient(to right, #2c3e50, #4a708a); /* Dark blue to lighter blue gradient */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    outline: none; /* Remove default focus outline */
+}
+.search-bar input::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Lighter white for placeholder */
+}
+
+.search-bar button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px; /* Matches input roundedness */
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff; /* White text */
+    background: linear-gradient(to right, #8e44ad, #c0392b); /* Purple to red gradient */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Stronger shadow for button */
+}
+
+.search-bar button:hover {
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Enhanced shadow */
 }
 
 /* Error & Loading Messages */
@@ -88,10 +171,12 @@ body{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
+  margin-top: 20px;
 }
 
 .track-card {
-  background: #f8f8f8;
+  /* background: #f8f8f8; */
+  background: linear-gradient(180deg, GRAY, #B9BAB8);
   padding: 1rem;
   border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 1);
@@ -125,7 +210,7 @@ audio {
   margin-top: 0.5rem;
 }
 
-@media (max-width: 420px) {
+@media (max-width: 425px) {
   .main-container {
     padding: 1rem;
   }
@@ -135,20 +220,20 @@ audio {
   }
 
   .no-tex-msg{
-    margin-top: 10rem;
+    margin-top: 5rem;
     font-size: 1.8rem;
   }
 
   .search-bar {
     flex-direction: column;
-    gap: 0.5rem;
+    /* gap: 0.5rem; */
   }
 
   .search-bar input,
   .search-bar button {
-    width: 100%;
-    font-size: 0.95rem;
-    padding: 0.5rem 0rem;
+    /* width: 100%; */
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
     
   }
 
@@ -175,7 +260,7 @@ audio {
   }
 
   .no-tex-msg{
-    margin-top: 9rem;
+    margin-top: 5rem;
     font-size: 1.5rem;
   }
 
@@ -183,6 +268,7 @@ audio {
   .search-bar input,
   .search-bar button {
     font-size: 0.9rem;
+    /* padding: 0.8rem 0; */
   }
 
   .track-card {
@@ -206,7 +292,7 @@ audio {
   .search-bar input,
   .search-bar button {
     font-size: 0.85rem;
-    padding: 0.4rem;
+    padding: 0.7rem 0.8rem;
   }
 
   .track-card {
