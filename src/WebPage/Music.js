@@ -6,6 +6,7 @@ const Music = () => {
   const [tracks, setTracks] = useState([]);
   const [currentAudio, setCurrentAudio] = useState(null);
   const audioRefs = useRef([]);
+  const audioRef = useRef([]);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [query, setQuery] = useState('');
@@ -102,10 +103,10 @@ home();
 
           <audio
             controls
-            ref={(el) => (audioRefs.current[index] = el)}
+            ref={(el) => (audioRef.current[index] = el)}
             src={track.preview}
             onPlay={() => {
-              audioRefs.current.forEach((audio, idx) => {
+              audioRef.current.forEach((audio, idx) => {
                 if (audio && idx !== index) {
                   audio.pause();
                   audio.currentTime = 0;
