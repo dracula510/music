@@ -62,7 +62,7 @@ useEffect(() => {
   finally{
      setTimeout(() => {
       setLoading(false);
-    }, 1000);
+    });
   }
 };
 
@@ -121,7 +121,7 @@ home();
   
   <div className="track-list">
     {tracks.length === 0 ? (
-      <p className='no-tex-msg'>No tracks yet. Try searching!</p>
+      <p className='no-tex-msg'>Check your internet connection!</p>
     ) : (
       tracks.map((track, index) => (
         <div key={track.id} className="track-card">
